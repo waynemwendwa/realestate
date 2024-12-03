@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Listings</title>
+    <link rel="stylesheet" href="catalogue.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="images/Logo.png" alt="">
+        </a>
+        <ul class="navbar">
+            <li><a href="HOME.html">HOME</a></li>
+            <li><a href="About.html">ABOUT</a></li>
+            <li><a href="Contact.html">CONTACT</a></li>
+       </ul>
+      
+    </header>
+
+    <div class="search-bar">
+        <input type="text" id="search-box" placeholder="Search by title or location..." onkeyup="filterProperties()">
+    </div>
+
+    <div class="container" id="properties">
+        <!-- Properties will be dynamically loaded here -->
+    </div>
+
+    <button class="cart-toggle" onclick="toggleCart()">Toggle Cart</button>
+
+    <div class="cart" id="cart">
+        <h3>Your Cart</h3>
+        <ul class="cart-items" id="cart-items">
+            <!-- Cart items will appear here -->
+        </ul>
+        <div class="cart-total" id="cart-total">Total: KSH 0</div>
+        <button onclick="toggleCart()">Close Cart</button>
+
+        <button onclick="showPaymentForm()">Proceed to Payment</button>
+
+        <div class="payment-form" id="payment-form">
+            <h3>Enter Payment Details</h3>
+            <input type="text" id="card-number" placeholder="Card Number" required>
+            <input type="text" id="expiry-date" placeholder="Expiry Date (MM/YY)" required>
+            <input type="text" id="cvv" placeholder="CVV" required>
+            <button onclick="processPayment()">Pay Now</button>
+        </div>
+    </div>
+
+    <script>
+        // Property Data
+        const properties = [
+            { id: 1, title: "2 Bedroom Duplex in Kilimani", description: "Spacious duplex with modern design, perfect for family living.", price: 130000, location: "Kilimani", image:"Catalogue images/photo1.jpg"},
+            { id: 2, title: "Furnished Studio in Westlands", description: "Cozy studio apartment ideal for professionals or students.", price: 75000, location: "Westlands", image: "Catalogue images/photo2.jpeg" },
+            { id: 3, title: "Luxury Penthouse in Kileleshwa", description: "Elegant penthouse with panoramic views of the city.", price: 250000, location: "Kileleshwa", image: "Catalogue images/photo1.jpg" },
+            { id: 4, title: "4 Bedroom Villa in Karen", description: "Beautiful villa with a large garden and swimming pool.", price: 400000, location: "Karen", image: "Catalogue images/photo1.jpg" },
+            { id: 5, title: "3 Bedroom Apartment in Lavington", description: "Modern apartment with excellent amenities.", price: 150000, location: "Lavington", image: "Catalogue images/photo1.jpg" },
+            { id: 6, title: "1 Bedroom Apartment in Upper Hill", description: "Compact apartment close to business district.", price: 85000, location: "Upper Hill", image: "Catalogue images/photo1.jpg" },
+            { id: 7, title: "5 Bedroom Mansion in Runda", description: "Luxurious mansion with high-end finishes and spacious rooms.", price: 500000, location: "Runda", image: "Catalogue images/photo1.jpg" },
+            { id: 8, title: "2 Bedroom Cottage in Ngong", description: "Charming cottage with scenic views.", price: 90000, location: "Ngong", image: "Catalogue images/photo1.jpg" },
+            { id: 9, title: "3 Bedroom Bungalow in Kitengela", description: "Affordable family bungalow with ample parking.", price: 100000, location: "Kitengela", image: "Catalogue images/photo1.jpg" },
+            { id: 10, title: "Serviced Apartment in Nairobi CBD", description: "Fully serviced apartment in the city center.", price: 120000, location: "Nairobi CBD", image: "Catalogue images/photo1.jpg" },
+        ];
+
+        const propertyContainer = document.getElementById("properties");
+        const cart = document.getElementById("cart");
+        const cartItems = document.getElementById("cart-items");
+        const cartTotal = document.getElementById("cart-total");
+        const paymentForm = document.getElementById("payment-form");
+        let cartData = [];
+        let total = 0;
+        let isCartVisible = false;
+
+        // Render Properties
+        function renderProperties() {
+            properties.forEach(property => {
+                const propertyCard = document.createElement("div");
+                propertyCard.classList.add("card");
+
+                propertyCard.innerHTML = `
+                    <img src="${property.image}" alt="${property.title}">
+                    <div class="info">
+                        <h3>${property.title}</h3>
+                        <p>${property.description}</p>
+                        <p class="price">KSH ${property.price.toLocaleString()}</p>
+                        <button onclick="addToCart(${property.id})">Add to Cart</button>
+                    </div>
+                `;
+
+                propertyContainer.appendChild(propertyCard);
+            });
+        }
+
+        // Add to Cart
+        function addToCart(id) {
+            const property = properties.find(item => item.id === id);
+            if (!cartData.includes(property)) {
+                cartData.push(property);
+                total += property.price;
+                updateCart();
+            }
+        }
+
+        // Remove from Cart
+        function removeFromCart(id) {
+            const property = cartData.find(item => item.id === id);
+            if (property) {
+                cartData = cartData.filter(item => item.id !== id);
+                total -= property.price;
+                updateCart();
+            }
+        }
+
+        // Update Cart
+        function updateCart() {
+            cartItems.innerHTML = "";
+            cartData.forEach(item => {
+                const cartItem = document.createElement("li");
+                cartItem.innerHTML = `
+                    <span>${item.title} - KSH ${item.price.toLocaleString()}</span>
+                    <button onclick="removeFromCart(${item.id})">Remove</button>
+                `;
+                cartItems.appendChild(cartItem);
+            });
+            cartTotal.textContent = `Total: KSH ${total.toLocaleString()}`;
+        }
+
+        // Toggle Cart Visibility
+        function toggleCart() {
+            isCartVisible = !isCartVisible;
+            cart.classList.toggle("visible", isCartVisible);
+        }
+
+        // Show Payment Form
+        function showPaymentForm() {
+            paymentForm.style.display = "block";
+        }
+
+        // Process Payment
+        function processPayment() {
+            alert("Payment Successful! Your properties are reserved.");
+            cartData = [];
+            total = 0;
+            updateCart();
+            paymentForm.style.display = "none";
+            toggleCart();
+        }
+
+        // Search Properties
+        function filterProperties() {
+            const searchText = document.getElementById("search-box").value.toLowerCase();
+            const cards = document.querySelectorAll(".card");
+            cards.forEach(card => {
+                const title = card.querySelector("h3").textContent.toLowerCase();
+                const location = properties.find(prop => prop.title.toLowerCase() === title).location.toLowerCase();
+                if (title.includes(searchText) || location.includes(searchText)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        // Initialize
+        renderProperties();
+    </script>
+</body>
+</html>
+
+

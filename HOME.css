@@ -1,0 +1,474 @@
+★{
+    margin:0;
+    padding:0;
+}
+.header{
+    min-height:120vh;
+    width:100%;
+    background-image:url(IMAGES/Chicago.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+nav{
+    display: flex;
+    padding:2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+nav img{
+    width:150px;
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li{
+    list-style:none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+.nav-links li::after{
+    content:'';
+    width:0%;
+    height:2px;
+    background: #f44336;
+    display:block;
+    margin: auto;
+    transform: 0.5s;
+}
+.nav-links ul li:hover::after{
+    width:100%;
+}
+.text-box{
+    width:90%;
+    color:#fff;
+    position: absolute;
+    top:60%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align: center;
+}
+.text-box h1{
+    font-size:62px;
+}
+.text-box p{
+    margin:5px 0 20px;
+    font-size: 14px;
+}
+.hero-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border:1px solid #fff;
+    padding: 12px 34px;
+    font-size:13px;
+    background:transparent;
+    position: relative;
+    cursor: pointer;
+}
+.hero-btn:hover{
+    border:1px solid#f44336;
+    background: #f44336;
+    transition: 1s;
+}
+@media(max-width:700px){
+    .text-box h1{
+        font-size:20px;
+    }
+    .nav-links ul li{
+        display: block;
+    }
+    nav links{
+        position: absolute;
+        background: #f44336;
+        height:100vh;
+        width: 200px;
+        top:0;
+        right:0;
+        text-align:left;
+        z-index: index 2;
+    }
+    
+}
+
+<!--------PROPERTIES------------->
+.properties{
+    width:80%;
+    margin:auto;
+    text-align: center;
+    padding: top 100px;;
+}
+.properties h1{
+    font-size:36px;
+    font-weight: 600;
+    text-align: center;
+    margin:5px 0 20px;
+}
+.properties p{
+    color:black;
+    font-size:14px;
+    font-weight:300;
+    line-height: 22px;
+    padding: 10px;
+    text-align: center;
+    margin:2px 0 10px;
+    margin-left:-10px;
+
+}
+.card{
+    width:200px;
+    height:230px;
+    display:inline-block;
+    border-radius:10px;
+    padding:15px 25px;
+    box-sizing:border-box;
+    cursor: pointer;
+    margin: 10px 15px;
+    background-image:url(IMAGES/villa.jpg) ;
+    background-position:center;
+    background-size:cover;
+}
+.card1{
+    background-image: url(IMAGES/luxury-house.jpg);
+}
+.card2{
+    background-image: url(IMAGES/condo.jpg);
+}
+.card3{
+    background-image: url(IMAGES/Country\ side\ houses.jpg);
+}
+.card4{
+    background-image:url(IMAGES/vaccation\ homes.jpg);
+}
+.card5{
+    background-image:url(IMAGES/Fixer\ upper\ house.png);
+}
+.card6{
+    background-image:url(IMAGES/Investment\ property.jpg) ;
+}
+.card7{
+    background-image:url(IMAGES/New\ construction\ houses.jpg);
+}
+.card8{
+    background-image:url(IMAGES/Skyscrapper.jpg);
+}
+.card9{
+    background-image:url(IMAGES/Mountain\ cabin.jpg);
+}
+.card10{
+background-image:url(IMAGES/Urban\ townhouse.jpg);
+}
+
+<!------why--------------------->
+
+.board-properties{
+    width:80%;
+    margin:auto;
+    text-align: center;
+    padding: top 100px;;
+    
+}
+.board-properties h1{
+    font-size:36px;
+    font-weight: 600;
+    text-align: center;
+    margin:5px 0 20px;
+}
+.board-properties p{
+    color:black;
+    font-size:14px;
+    font-weight:300;
+    line-height: 22px;
+    padding: 10px;
+    text-align: center;
+    margin:2px 0 10px;
+    margin-left:-10px;
+
+}
+.why{
+    
+        min-height:100vh;
+        width:100%;
+        background-image:url(IMAGES/willian-justen-de-vasconcellos-2JbsL1oxvZA-unsplash.jpg);
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    
+}
+.why h3{
+    color:gold;
+}
+.why p{
+    color: #fff;
+}
+
+.board{
+    width:375px;
+    height:230px;
+    display:inline-block;
+    border-radius:10px;
+    padding:15px 25px;
+    box-sizing:border-box;
+    cursor: pointer;
+    margin: 10px 15px;
+    background-image:url(IMAGES/villa.jpg) ;
+    background-position:center;
+    background-size:cover;
+}
+<!--------ending--------->
+
+.ending{
+    min-height:100vh;
+    width:100%;
+    
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    
+    background-color: bisque;
+}
+.ending p{
+    color: aqua;
+}
+.ending-properties{
+    min-height:100vh;
+    width:100%;
+    
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    background-image:url(IMAGES/New\ york.jpg) ;
+    display:inline-block;
+    
+}
+.endingbox{
+    width:90%;
+    color:black;
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    align-self:center;
+    margin-right:1500px;
+}
+
+.endingbox p{
+    margin:5px 0 20px;
+    font-size: 14px;
+    color: gold;
+}
+.hero-btnb{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    
+    padding: 12px 34px;
+    font-size:13px;
+    background:transparent;
+    position: relative;
+    cursor: pointer;
+    border:1px solid#f44336;
+    background: #f44336;
+}
+.hero-btnb:hover{
+    border:1px gold;
+    background: gold;
+    transition: 1s;
+}
+
+
+
+<!---------FORM INPUT-->
+.formmain{
+    align-items: center;
+}
+.form{
+    width:250px;
+    height:380px;
+    background:linear-gradient(to top,rgba(0,0,0,0,8));
+    position: absolute;
+    
+    left: 50px;
+    border-radius:10px;
+    padding: 25px;
+    background-image:url(IMAGES/New\ york.jpg) ;
+    margin-top:px;
+    text-align: center;
+    border:1px solid black;
+    margin-left:px;
+    text-align:center;
+    align-self:center;
+    
+}
+.form h2{
+    width:220px;
+    font-family:sans-serif;
+    text-align:center;
+    color: goldenrod;
+    font-size:22px;
+   
+    border-radius:1px solid black;
+    margin:2px;
+    padding:8px;
+}
+.form input{
+    width:240px;
+    height: 35px;
+    background:transparent;
+    border-bottom:1px solid black;
+    border-top:none;
+    border-left: none;
+    border-right:none;
+    color: white;
+    font-size:15px;
+    letter-spacing:1px;
+    margin-top:30px;
+    font-family:sans-serif ;
+}
+.form input :focus{
+    outline:none;
+}
+::placeholder{
+    color: #fff;
+    font-family: Arial;
+
+}
+.btn{
+    width:240px;
+    height:40px;
+    background:goldenrod;
+    border:none;
+    margin-top:30px;
+    font-size:18px;
+    border-radius:10px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s;
+
+}
+.btn:hover{
+    background:white;
+    color:goldenrod;
+}
+.btn a{
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+}
+.form .link a{
+    text-decoration:none;
+    color:gold;
+
+}
+.liw{
+    padding-top:15px;
+    padding-bottom:10px;
+    text-align:center;
+}
+
+<!-----------brands-------------->
+nav{
+    display: flex;
+    padding:2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+.brand-nav{
+    flex: 1;
+    text-align: center;
+}
+.brand-nav ul li{
+    list-style:none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+<!---------footer-------->
+.footer{
+    background-color: #000;
+    display:flex;
+}
+.footermain{
+    background: #000;
+    color: #8a8a8a;
+    font-size:14px;
+    padding:60px 0 20px;
+    background-color: #000;
+    background: fixed #000;
+    flex:1;
+    display: flex;
+}
+.footer p{
+    color: #8a8a8a;
+}
+.footer h3{
+    color:#fff;
+    margin-top:20px;
+}
+.footer-col-1,.footer-col-2,.footer-col-3,.footer-col-4{
+    min-width:200px;
+    margin-bottom:20px;
+}
+.footer-col-1{
+    flex-basis:30%;
+}
+
+.footer-col-3,.footer-col-4{
+   flex-basis:30%;
+   
+}
+.footer-col-4{
+    flex-basis:30%;
+    
+ }
+
+ul{
+    list-style-type: none;
+}
+nav{
+    display: flex;
+    padding:2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+.footerrow{
+    flex: 1;
+    text-align: center;
+    display: flex;
+}
+.footerrow ul li{
+    list-style:none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.footer-col-3 li{
+    display: list-item;
+}
+.footer-col-4 ul li{
+    display: list-item;
+}
+
+.footercointainer{
+    display:flex;
+}
+.footer-col{
+    display: flex;
+}
+.footer-col-4 img{
+    height:20px;
+    width:20px;
+}
+.app-logo{
+    display:flex;
+}
